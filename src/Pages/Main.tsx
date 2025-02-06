@@ -9,7 +9,6 @@ const Main: React.FC = () => {
 
     const { addTodo, todos, remove } = useContext(todoContext);
 
-
     return <>
         <Header title='todo app' />
         <Box marginTop={10} padding={10}>

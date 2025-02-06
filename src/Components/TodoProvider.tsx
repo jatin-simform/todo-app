@@ -1,34 +1,11 @@
-import { useCallback, useState } from "react"
 import todoContext from '../Contexts/TodoContext'
+import useTodo from "../Hooks/useTodo"
 
 const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-    const [todos, setTodos] = useState<string[]>([]);
+    const data = useTodo();
 
-    const addTodo = useCallback((item: string) => {
-
-        setTodos([item, ...todos]);
-
-    }, [todos]);
-
-    const update = useCallback((item: string, index: number) => {
-
-        setTodos((items) => {
-            const updated = [...items];
-            updated[index] = item;
-            return updated
-        });
-
-    }, []);
-
-    const remove = useCallback((index: number) => {
-
-        setTodos((items) =>items.filter((_, tindex) => (index !== tindex)));
-
-    }, [])
-
-
-    return <todoContext.Provider value={{ todos, addTodo, update, remove }} >
+    return <todoContext.Provider value={data} >
         {children}
     </todoContext.Provider>
 

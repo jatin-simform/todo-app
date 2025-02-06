@@ -1,4 +1,3 @@
-import React from 'react';
 import TodoProvider from './Components/TodoProvider';
 import Main from './Pages/Main';
 

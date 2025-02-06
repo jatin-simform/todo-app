@@ -19,23 +19,13 @@ const TodoForm: React.FC<ITodoFormProps> = ({ onAdd }) => {
 
         if (text !== '') {
             onAdd(text);
-            // setText('');
         }
 
     }, [text, onAdd]);
 
     return <>
-        <TextField
-            slotProps={{
-                input: { "id": "input-form" }
-            }}
-
-            role='textbox-1' value={text} size="small"
-            placeholder="Todo text"
-            label="Todo Text" onChange={handleChange} />
-        {/* <input type="text" data-testid="input-form" value={text}  onChange={handleChange}/> */}
-        {/* <Button data-testid="add-btn" id="add-btn" variant="contained" onClick={handleAdd} color="primary">Add</Button> */}
-        <button type='button' data-testid="add-btn" onClick={handleAdd}  >Add</button>
+        <TextField value={text} size="small" placeholder="Todo text" label="Todo Text" onChange={handleChange} />
+        <Button data-testid="add-btn" id="add-btn" variant="contained" onClick={handleAdd} color="primary">Add</Button>
     </>
 
 }
